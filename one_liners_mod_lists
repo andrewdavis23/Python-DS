@@ -1,0 +1,10 @@
+# modify
+nums = [0,1,1,2,3,5,8,13]
+new_nums = [num + 1 for num in nums]
+print(nums,new_nums)
+
+# combo
+pairs_2 = [(num1,num2) for num1 in range(0,2) for num2 in range(6,8)]
+
+# print
+print(pair) for pair in pairs_2
