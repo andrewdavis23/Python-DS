@@ -1,3 +1,4 @@
+## EX 1
 # Create a plot with color='red'
 df.plot(color='red')
 
@@ -9,6 +10,16 @@ plt.xlabel('Hours since midnight August 1, 2010')
 
 # Specify the y-axis label
 plt.ylabel('Temperature (degrees F)')
+
+# Display the plot
+plt.show()
+
+## EX 2
+# Make a list of the column names to be plotted: cols
+cols = ['weight','mpg']
+
+# Generate the box plots
+df[cols].plot(subplots=True)
 
 # Display the plot
 plt.show()
