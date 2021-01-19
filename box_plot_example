@@ -1,0 +1,13 @@
+# Plot the number of hours spent on desk work
+plt.bar(hours.officer, hours.desk_work, label='Desk Work')
+
+# Plot the hours spent on field work on top of desk work
+plt.bar(hours.officer, hours.field_work, label='Field Work', bottom=hours.desk_work)
+
+##bottom=0 puts the second bars on the bottom, overlapping. Above, bottom=the top of the other plotted values which stacks the two categories of hours worked
+
+# Add a legend
+plt.legend()
+
+# Display the plot
+plt.show()
