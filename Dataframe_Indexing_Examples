@@ -1,4 +1,4 @@
-####Change index and column names
+####Change index and column names ########################################################################
 
 # Assign the string 'MONTHS' to sales.index.name
 sales.index.name = 'MONTHS'
@@ -23,3 +23,35 @@ print(sales)
 # MAY        132   NaN    52
 # JUN        205  60.0    55
 
+
+#### Indexing multiple levels of a MultiIndex #############################################################
+
+# Look up data for NY in month 1 in sales: NY_month1
+NY_month1 = sales.loc['NY',1]
+
+# Look up data for CA and TX in month 2: CA_TX_month2
+CA_TX_month2 = sales.loc[(['CA', 'TX'], 2),:]
+
+# Look up data for all states in month 2: all_month2
+all_month2 = sales.loc[(['CA','NY','TX'], 2),:]
+
+#              eggs  salt  spam
+# state month                  
+# CA    1        47  12.0    17
+#       2       110  50.0    31
+# NY    1       221  89.0    72
+#       2        77  87.0    20
+# TX    1       132   NaN    52
+#       2       205  60.0    55
+
+print(CA_TX_month2,all_month2)
+
+#              eggs  salt  spam
+# state month                  
+# CA    2       110  50.0    31
+# TX    2       205  60.0    55              
+#              eggs  salt  spam
+# state month                  
+# CA    2       110  50.0    31
+# NY    2        77  87.0    20
+# TX    2       205  60.0    55
