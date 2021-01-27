@@ -1,0 +1,38 @@
+#### INTERESTING GROUP BY  ###########################################################################################
+## Group by the columns of a different dataframe
+
+# Read life_fname into a DataFrame: life
+life = pd.read_csv(life_fname, index_col='Country')
+
+#                        1964    1965    1966    1967    1968  ...    2009    2010    2011    2012    2013
+# Country                                                      ...                                        
+# Afghanistan          33.639  34.152  34.662  35.170  35.674  ...  59.124  59.612  60.079  60.524  60.947
+# Albania              65.475  65.863  66.122  66.316  66.500  ...  76.598  76.780  76.979  77.185  77.392
+# Algeria              47.953  48.389  48.806  49.205  49.592  ...  70.477  70.615  70.747  70.874  71.000
+# Angola               34.604  35.007  35.410  35.816  36.222  ...  50.286  50.689  51.094  51.498  51.899
+# Antigua and Barbuda  63.775  64.149  64.511  64.865  65.213  ...  75.263  75.437  75.610  75.783  75.954
+
+# Read regions_fname into a DataFrame: regions
+regions = pd.read_csv(regions_fname, index_col='Country')
+
+# region
+# Country                                        
+# Afghanistan                          South Asia
+# Albania                   Europe & Central Asia
+# Algeria              Middle East & North Africa
+# Angola                       Sub-Saharan Africa
+# Antigua and Barbuda                     America
+
+# Group life by regions['region']: life_by_region
+life_by_region = life.groupby(regions['region'])
+
+# Print the mean over the '2010' column of life_by_region
+print(life_by_region['2010'].mean())
+
+    # region
+    # America                       74.037350
+    # East Asia & Pacific           73.405750
+    # Europe & Central Asia         75.656387
+    # Middle East & North Africa    72.805333
+    # South Asia                    68.189750
+    # Sub-Saharan Africa            57.575080
