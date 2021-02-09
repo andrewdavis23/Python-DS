@@ -57,7 +57,7 @@ print(units_sum)
     # Tue    13
     # Wed    48
     
-#### df.col.transform() ##############################################################################
+#### df.col.transform() ##################################################################################################
 
 # Create a groupby object: by_sex_class
 by_sex_class = titanic.groupby(['sex','pclass'])
@@ -73,7 +73,7 @@ titanic.age = by_sex_class.age.transform(impute_median)
 print(titanic.tail(10))
 
 
-#### Filter by Group without actually grouping the data #############################################
+#### Filter by Group without actually grouping the data ######################################################################
 
 # Read the CSV file into a DataFrame: sales
 sales = pd.read_csv('sales.csv', index_col='Date', parse_dates=True)
@@ -107,8 +107,34 @@ print(by_com_filt)
     # 2015-02-21 05:00:00  Mediacore  Software      3
     # 2015-02-26 09:00:00  Streeplex   Service      4
     
-    
-    
+   
+#### Percentage of Titanic survivors under age 10 (mapping and aggreagating a boolean variable ######################################
+#  Using maps to make files more readable EX COL:Item in CAO? 
+
+# Create the Boolean Series: under10
+under10 = (titanic.age < 10).map({True:'under 10', False:'over 10'})
+
+# Group by under10 and compute the survival rate
+survived_mean_1 = titanic.groupby(under10).survived.mean()
+print(survived_mean_1)
+
+# Group by under10 and pclass and compute the survival rate
+survived_mean_2 = titanic.groupby([under10,'pclass']).survived.mean()
+print(survived_mean_2)
+
+
+# <script.py> output:
+#     age
+#     over 10     0.366748
+#     under 10    0.609756
+#     Name: survived, dtype: float64
+#     age       pclass
+#     over 10   1         0.617555
+#               2         0.380392
+#               3         0.238897
+#     under 10  1         0.750000
+#               2         1.000000
+#               3         0.446429
     
     
     
