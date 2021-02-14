@@ -136,7 +136,8 @@ print(survived_mean_2)
 #               2         1.000000
 #               3         0.446429
     
-#### Rich example #####################################################################################################################
+#### Conditional Groupby:  Number of olympic medals won during the cold war, USA & RUS ####################################################################
+
 # Create a Boolean Series that is True when 'Edition' is between 1952 and 1988: during_cold_war
 during_cold_war = (medals.Edition >= 1952) & (medals.Edition <= 1988)
 
