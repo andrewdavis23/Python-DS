@@ -72,3 +72,19 @@ wine_subset = wine[['Ash', 'Alcalinity of ash', 'Magnesium']]
 # Apply the scaler to the DataFrame subset (this is a numpy array)
 wine_subset_scaled = ss.fit_transform(wine_subset)
 
+## Fix accuarcy of model with SCALING (see KNN example above where accuracy = (0.6,0.8))
+
+# Create the scaling method.
+ss = StandardScaler()
+
+# Apply the scaling method to the dataset used for modeling.
+X_scaled = ss.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y)
+
+# Fit the k-nearest neighbors model to the training data.
+knn.fit(X_train,y_train)
+
+# Score the model on the test data.
+print(knn.score(X_test,y_test))
+
+# New accuracy is within (0.88,1.0)
