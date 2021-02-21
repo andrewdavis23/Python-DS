@@ -39,7 +39,7 @@ print(knn.score(X_test,y_test))
 #### LOG NORMALIZATION
 
 # Print out the variance of the Proline column
-print(wine.var().loc['Proline'])
+print(wine['Proline'].var())
 
 ## 99166.71735542428
 
@@ -47,7 +47,7 @@ print(wine.var().loc['Proline'])
 wine['Proline'] = np.log(wine['Proline'])
 
 # Check the variance of the normalized Proline column
-print(wine.var().loc['Proline'])
+print(wine['Proline'].var())
 
 ## 0.17231366191842018
 
