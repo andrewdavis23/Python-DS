@@ -1,3 +1,5 @@
+## Sometimes the necessary modules are not shown as being imported.
+
 ## Stratifying #############################################################################################################
 # Class: the output category of data
 # Stratify:  Make the original dataset class distribution match the class distribution in both the training and test class
@@ -58,4 +60,15 @@ print(wine['Proline'].var())
 
 # EXAMPLE
 
+# Import StandardScaler from scikit-learn
+from sklearn.preprocessing import StandardScaler
+
+# Create the scaler
+ss = StandardScaler()
+
+# Take a subset of the DataFrame you want to scale 
+wine_subset = wine[['Ash', 'Alcalinity of ash', 'Magnesium']]
+
+# Apply the scaler to the DataFrame subset (this is a numpy array)
+wine_subset_scaled = ss.fit_transform(wine_subset)
 
