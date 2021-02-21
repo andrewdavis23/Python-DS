@@ -51,3 +51,11 @@ print(wine['Proline'].var())
 
 ## 0.17231366191842018
 
+## Standardization ##########################################################################################################
+
+# GENERAL FORM
+# for sklearn.preprocessing = pd.DataFrame(scaler.fit_transform(df), columns = df.columns)
+
+# EXAMPLE
+
+
