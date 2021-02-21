@@ -17,6 +17,14 @@ print(y_train["category_desc"].value_counts())
 
 ## KNN & Normalization #####################################################################################################
 
+#### X (Proline is highly variable):
+#   Proline  Total phenols   Hue  Nonflavanoid phenols
+#0     1065           2.80  1.04                  0.28
+#1     1050           2.65  1.05                  0.26
+#2     1185           2.80  1.03                  0.30
+#3     1480           3.85  0.86                  0.24
+#4      735           2.80  1.04                  0.39 
+
 # Split the dataset and labels into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X,y)
 
@@ -27,5 +35,19 @@ knn.fit(X_train,y_train)
 print(knn.score(X_test,y_test))
 
 # output is between 0.6 and 0.8
-# INPROVEMENT:
+
+#### LOG NORMALIZATION
+
+# Print out the variance of the Proline column
+print(wine.var().loc['Proline'])
+
+## 99166.71735542428
+
+# Apply the log normalization function to the Proline column
+wine['Proline'] = np.log(wine['Proline'])
+
+# Check the variance of the normalized Proline column
+print(wine.var().loc['Proline'])
+
+## 0.17231366191842018
 
