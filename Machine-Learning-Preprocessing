@@ -88,3 +88,33 @@ knn.fit(X_train,y_train)
 print(knn.score(X_test,y_test))
 
 # New accuracy is within (0.88,1.0)
+
+## Feature Engineering (Column Editing) ##################################################################################################
+
+##### TRANSFORM - uses mean and variance, in this case it's transforming a BOOL column
+
+# Set up the LabelEncoder object
+enc = LabelEncoder()
+
+# Apply the encoding to the "Accessible" column
+hiking["Accessible_enc"] = enc.fit_transform(hiking["Accessible"])
+
+# Compare the two columns
+print(hiking[["Accessible", "Accessible_enc"]].head())
+
+    # Accessible  Accessible_enc
+    # 0          Y               1
+    # 1          N               0
+    # 2          N               0
+    # 3          N               0
+    # 4          N               0
+    
+##### Dummie - returns DF where categories are column and index matches original index. Values are 0 and 1. Basically a truth table for categories.
+
+# Transform the category_desc column
+category_enc = pd.get_dummies(volunteer["category_desc"])
+
+# Take a look at the encoded columns
+print(category_enc.head())
+
+
