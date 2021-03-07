@@ -1,3 +1,4 @@
+```python
 ## Sometimes the necessary modules are not shown as being imported.
 
 ## Stratifying #############################################################################################################
@@ -133,3 +134,5 @@ def return_mileage(length):
 # Apply the function to the Length column and take a look at both columns
 hiking["Length_num"] = hiking["Length"].apply(lambda row: return_mileage(row))
 print(hiking[["Length", "Length_num"]].head())
+
+```
