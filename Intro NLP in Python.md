@@ -136,4 +136,51 @@ print(bow.most_common(10))
 ```
 [('debugging', 40), ('system', 25), ('software', 16), ('bug', 16), ('problem', 15), ('tool', 15), ('computer', 14), ('process', 13), ('term', 13), ('used', 12)]
 ```
+### Introduction to gensim
+- Word vectors are multi-dimensional mathematical representations of words created using deep learning methods. They give us insight into relationships between words in a corpus.
 
+Creating and querying a corpus with gensim
+```python3
+# Import Dictionary
+from gensim.corpora.dictionary import Dictionary 
+
+# Create a Dictionary from the articles: dictionary
+dictionary = Dictionary(articles)
+
+# Select the id for "computer": computer_id
+computer_id = dictionary.token2id.get("computer")
+
+# Use computer_id with the dictionary to print the word
+print(dictionary.get(computer_id))
+
+# Create a MmCorpus: corpus
+corpus = [dictionary.doc2bow(article) for article in articles]
+
+# Print the first 10 word ids with their frequency counts from the fifth document
+print(corpus[4][:10])
+```
+Gensim bag-of-words
+- itertools.chain.from_iterable() allows us to iterate through a set of sequences as if they were one continuous sequence. Using this function, we can easily iterate through our corpus object (which is a list of lists).
+```python3
+# Save the fifth document: doc
+doc = corpus[4]
+
+# Sort the doc for frequency: bow_doc
+bow_doc = sorted(doc, key=lambda w: w[1], reverse=True)
+
+# Print the top 5 words of the document alongside the count
+for word_id, word_count in bow_doc[:5]:
+    print(dictionary.get(word_id), word_count)
+    
+# Create the defaultdict: total_word_count
+total_word_count = defaultdict(int)
+for word_id, word_count in itertools.chain.from_iterable(corpus):
+    total_word_count[word_id] += word_count
+    
+# Create a sorted list from the defaultdict: sorted_word_count
+sorted_word_count = sorted(total_word_count.items(), key=lambda w: w[1], reverse=True) 
+
+# Print the top 5 words across all documents alongside the count
+for word_id, word_count in sorted_word_count[:5]:
+    print(dictionary.get(word_id), word_count)
+```
