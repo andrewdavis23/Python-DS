@@ -159,7 +159,7 @@ corpus = [dictionary.doc2bow(article) for article in articles]
 # Print the first 10 word ids with their frequency counts from the fifth document
 print(corpus[4][:10])
 ```
-### Default Dictionaries :books:
+### :books: Default Dictionaries :books:
 LIST
 ```python3
 s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
