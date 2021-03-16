@@ -159,6 +159,37 @@ corpus = [dictionary.doc2bow(article) for article in articles]
 # Print the first 10 word ids with their frequency counts from the fifth document
 print(corpus[4][:10])
 ```
+### Default Dictionaries :books:
+LIST
+```python3
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+
+sorted(d.items())
+[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+```
+DICTIONARY
+```python3
+d = {}
+for k, v in s:
+    d.setdefault(k, []).append(v)
+
+sorted(d.items())
+[('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+```
+STRING
+```python3
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+
+sorted(d.items())
+[('i', 4), ('m', 1), ('p', 2), ('s', 4)]
+```
+
 Gensim bag-of-words
 - itertools.chain.from_iterable() allows us to iterate through a set of sequences as if they were one continuous sequence. Using this function, we can easily iterate through our corpus object (which is a list of lists).
 ```python3
@@ -232,3 +263,5 @@ for sent in chunked_sentences:
         if hasattr(chunk, "label") and chunk.label() == "NE":
             print(chunk)
 ```
+Charting practice
+
