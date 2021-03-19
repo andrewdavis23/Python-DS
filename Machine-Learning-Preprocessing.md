@@ -135,4 +135,15 @@ def return_mileage(length):
 hiking["Length_num"] = hiking["Length"].apply(lambda row: return_mileage(row))
 print(hiking[["Length", "Length_num"]].head())
 
+#### FEATURE SELECTION (not modification)
+
+# Print out the column correlations of the wine dataset
+print(wine.corr())
+
+# Take a minute to find the column where the correlation value is greater than 0.75 at least twice (correlations strongly with many columns)
+to_drop = "Flavanoids"
+
+# Drop that column from the DataFrame
+wine = wine.drop(to_drop, axis=1)
+
 ```
