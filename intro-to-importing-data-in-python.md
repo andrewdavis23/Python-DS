@@ -1,4 +1,4 @@
-(DataCamp Course)[https://campus.datacamp.com/courses/introduction-to-importing-data-in-python]
+[DataCamp Course](https://campus.datacamp.com/courses/introduction-to-importing-data-in-python)
 
 ### Python
 
