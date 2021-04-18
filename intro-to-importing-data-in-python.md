@@ -1,6 +1,6 @@
 [DataCamp Course](https://campus.datacamp.com/courses/introduction-to-importing-data-in-python)
 
-### Python
+### Flat files
 
 ```python
 # Read the directory file list
@@ -29,6 +29,7 @@ with open('moby_dick.txt') as file:
     print(file.readline())
     print(file.readline())
 ```
+### Importing data from other file types
 ```python3
 # Import pickle package
 import pickle
