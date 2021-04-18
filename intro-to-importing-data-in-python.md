@@ -1,4 +1,4 @@
-[DataCamp Course](https://campus.datacamp.com/courses/introduction-to-importing-data-in-python)
+## [DataCamp Course: Introduction to Importing Data in Python](https://campus.datacamp.com/courses/introduction-to-importing-data-in-python)
 
 ### Flat files
 
