@@ -30,6 +30,7 @@ with open('moby_dick.txt') as file:
     print(file.readline())
 ```
 ### Importing data from other file types
+Pickle
 ```python3
 # Import pickle package
 import pickle
@@ -44,6 +45,7 @@ print(d)
 # Print datatype of d
 print(type(d))
 ```
+Excel
 ```python3
 # Import pandas
 import pandas as pd
