@@ -161,7 +161,7 @@ plt.xlabel('GPS Time (s)')
 plt.ylabel('strain')
 plt.show()
 ```
-Matlab
+MATLAB
 ```python3
 # Import package
 import scipy.io
