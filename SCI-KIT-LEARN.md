@@ -1,5 +1,5 @@
-## Classification
-### EDA = "Exploratory Data Analysis"
+# Classification
+## EDA = "Exploratory Data Analysis"
 ```
 In [1]: print(df.info())
 <class 'pandas.core.frame.DataFrame'>
@@ -80,7 +80,7 @@ In [3]: print(df.head())
 3      0                  0        1  
 4      1                  1        1  
 ```
-### kNN Prediction
+## kNN Prediction
 ```python3
 # Import KNeighborsClassifier from sklearn.neighbors
 from sklearn.neighbors import KNeighborsClassifier 
@@ -102,7 +102,7 @@ y_pred = knn.predict(X)
 new_prediction = knn.predict(X_new)
 print("Prediction: {}".format(new_prediction))
 ```
-### kNN Digits Recognition
+## kNN Digits Recognition
 ```python3
 # Import necessary modules
 from sklearn import datasets
@@ -175,7 +175,7 @@ dict_keys(['data', 'target', 'target_names', 'images', 'DESCR'])
 (1797, 64)
 ```
 ![image](https://user-images.githubusercontent.com/47924318/115998054-770cf900-a5b3-11eb-9b11-6a24f035b281.png)
-Train Test Split
+###Train Test Split
 ```python3
 # Import necessary modules
 from sklearn.neighbors import KNeighborsClassifier
@@ -197,7 +197,7 @@ knn.fit(X_train, y_train)
 # Print the accuracy
 print(knn.score(X_test, y_test))
 ```
-Overfitting and Underfitting
+###Overfitting and Underfitting
 ```python3
 # Setup arrays to store train and test accuracies
 neighbors = np.arange(1, 9)
