@@ -1,6 +1,6 @@
 ## Classification
 ### EDA = "Exploratory Data Analysis"
-```python3
+```cmd
 In [1]: print(df.info())
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 435 entries, 0 to 434
@@ -25,7 +25,7 @@ eaa_rsa              435 non-null int64
 dtypes: int64(16), object(1)
 memory usage: 57.9+ KB
 ```
-```python3
+```cmd
 In [2]: print(df.describe())
           infants       water      budget   physician    salvador   religious  \
 count  435.000000  435.000000  435.000000  435.000000  435.000000  435.000000   
@@ -57,7 +57,7 @@ min      0.000000    0.000000    0.000000           0.000000    0.000000
 75%      1.000000    1.000000    1.000000           1.000000    1.000000  
 max      1.000000    1.000000    1.000000           1.000000    1.000000  
 ```
-```python3
+```cmd
 In [3]: print(df.head())
         party  infants  water  budget  physician  salvador  religious  \
 0  republican        0      1       0          1         1          1   
@@ -123,7 +123,7 @@ print(digits.data.shape)
 plt.imshow(digits.images[1010], cmap=plt.cm.gray_r, interpolation='nearest')
 plt.show()
 ```
-```python3
+```cmd
 Optical Recognition of Handwritten Digits Data Set
 ===================================================
 
