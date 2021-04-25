@@ -228,3 +228,46 @@ plt.ylabel('Accuracy')
 plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/47924318/115998093-ab80b500-a5b3-11eb-8dcd-4ee8efd962a9.png)
+
+# Regression
+- Regression tasks - classifiing on a continuously changing variables
+
+```python3
+x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))
+y = np.array([5, 20, 14, 32, 22, 38])
+```
+```shell
+>>> print(x)
+[[ 5]
+ [15]
+ [25]
+ [35]
+ [45]
+ [55]]
+>>> print(y)
+[ 5 20 14 32 22 38]
+```
+```python3
+# Import numpy and pandas
+import numpy as np
+import pandas as pd
+
+# Read the CSV file into a DataFrame: df
+df = pd.read_csv('gapminder.csv')
+
+# Create arrays for features and target variable
+y = np.array(df.life)
+X = np.array(df.fertility)
+
+# Print the dimensions of y and X before reshaping
+print("Dimensions of y before reshaping: ", y.shape)
+print("Dimensions of X before reshaping: ", X.shape)
+
+# Reshape X and y
+y_reshaped = y.reshape(-1,1)
+X_reshaped = X.reshape(-1,1)
+
+# Print the dimensions of y_reshaped and X_reshaped
+print("Dimensions of y after reshaping: ", y_reshaped.shape)
+print("Dimensions of X after reshaping: ", X_reshaped.shape)
+```
