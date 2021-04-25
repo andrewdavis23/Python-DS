@@ -175,7 +175,7 @@ dict_keys(['data', 'target', 'target_names', 'images', 'DESCR'])
 (1797, 64)
 ```
 ![image](https://user-images.githubusercontent.com/47924318/115998054-770cf900-a5b3-11eb-9b11-6a24f035b281.png)
-###Train Test Split
+### Train Test Split
 ```python3
 # Import necessary modules
 from sklearn.neighbors import KNeighborsClassifier
@@ -197,7 +197,7 @@ knn.fit(X_train, y_train)
 # Print the accuracy
 print(knn.score(X_test, y_test))
 ```
-###Overfitting and Underfitting
+### Overfitting and Underfitting
 ```python3
 # Setup arrays to store train and test accuracies
 neighbors = np.arange(1, 9)
