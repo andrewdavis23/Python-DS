@@ -271,3 +271,22 @@ X_reshaped = X.reshape(-1,1)
 print("Dimensions of y after reshaping: ", y_reshaped.shape)
 print("Dimensions of X after reshaping: ", X_reshaped.shape)
 ```
+# Cross-validation
+
+```python3
+# Import the necessary modules
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
+
+# Create a linear regression object: reg
+reg = LinearRegression()
+
+# Compute 5-fold cross-validation scores: cv_scores
+cv_scores = cross_val_score(reg,X,y)
+
+# Print the 5-fold cross-validation scores
+print(cv_scores)
+
+print("Average 5-Fold CV Score: {}".format(np.mean(cv_scores)))
+```
+
