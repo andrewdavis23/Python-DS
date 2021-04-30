@@ -289,4 +289,8 @@ print(cv_scores)
 
 print("Average 5-Fold CV Score: {}".format(np.mean(cv_scores)))
 ```
+```
+[0.83699524 0.87875694 0.89986165]
+Average 5-Fold CV Score: 0.8718712782622108
+```
 
