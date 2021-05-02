@@ -293,4 +293,29 @@ print("Average 5-Fold CV Score: {}".format(np.mean(cv_scores)))
 [0.81720569 0.82917058 0.90214134 0.80633989 0.94495637]
 Average 5-Fold CV Score: 0.8599627722793232
 ```
+Computation time
+```python3
+# Import necessary modules
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
 
+# Create a linear regression object: reg
+reg = LinearRegression()
+
+# Perform 3-fold CV
+cvscores_3 = cross_val_score(reg, X, y, cv = 3)
+print(np.mean(cvscores_3))
+
+# Perform 10-fold CV
+cvscores_10 = cross_val_score(reg, X, y, cv = 10)
+print(np.mean(cvscores_10))
+```
+```
+In [1]:
+%timeit cross_val_score(reg, X, y, cv = 3)
+100 loops, best of 3: 6.68 ms per loop
+
+In [2]:
+%timeit cross_val_score(reg, X, y, cv = 10)
+10 loops, best of 3: 20.7 ms per loop
+```
