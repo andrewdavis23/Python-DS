@@ -319,7 +319,9 @@ In [2]:
 %timeit cross_val_score(reg, X, y, cv = 10)
 10 loops, best of 3: 20.7 ms per loop
 ```
-Regularized Regression I: Lasso
+# Regularized Regression I: Lasso
+Least Absolute Shrinkage and Selection Operator  
+Shrink the dataset to remove unimportant variables.  
 ```python3
 # Import Lasso
 from sklearn.linear_model import Lasso
