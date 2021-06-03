@@ -319,3 +319,25 @@ In [2]:
 %timeit cross_val_score(reg, X, y, cv = 10)
 10 loops, best of 3: 20.7 ms per loop
 ```
+Regularized Regression I: Lasso
+```python3
+# Import Lasso
+from sklearn.linear_model import Lasso
+
+# Instantiate a lasso regressor: lasso
+lasso = Lasso(alpha=0.4, normalize=True)
+
+# Fit the regressor to the data
+lasso.fit(X, y)
+
+# Compute and print the coefficients
+lasso_coef = lasso.coef_
+print(lasso_coef)
+
+# Plot the coefficients
+plt.plot(range(len(df_columns)), lasso_coef)
+plt.xticks(range(len(df_columns)), df_columns.values, rotation=60)
+plt.margins(0.02)
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/47924318/120568389-bf54dd80-c3e1-11eb-939d-39526b1d7ee1.png)
