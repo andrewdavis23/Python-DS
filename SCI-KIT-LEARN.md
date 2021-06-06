@@ -272,7 +272,7 @@ print("Dimensions of y after reshaping: ", y_reshaped.shape)
 print("Dimensions of X after reshaping: ", X_reshaped.shape)
 ```
 # Cross-validation
-
+Partition data set into k folds. For each fold/partition, set it to training set and test accuracy of model.  Validate the skill of the model using the k scores.
 ```python3
 # Import the necessary modules
 from sklearn.linear_model import LinearRegression
@@ -321,7 +321,7 @@ In [2]:
 ```
 # Regularized Regression I: Lasso
 Least Absolute Shrinkage and Selection Operator  
-Shrink the dataset to remove unimportant variables.  
+Shrink the dataset to remove unimportant variables.
 ```python3
 # Import Lasso
 from sklearn.linear_model import Lasso
@@ -343,3 +343,38 @@ plt.margins(0.02)
 plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/47924318/120568389-bf54dd80-c3e1-11eb-939d-39526b1d7ee1.png)
+
+# Regularized Regression II: Ridge
+Unlike Lasso, Ridge doesn't set parameters to zero.
+
+# Import necessary modules
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import cross_val_score
+
+# Setup the array of alphas and lists to store scores
+alpha_space = np.logspace(-4, 0, 50)
+ridge_scores = []
+ridge_scores_std = []
+
+# Create a ridge regressor: ridge
+ridge = Ridge(normalize=True)
+
+# Compute scores over range of alphas
+for alpha in alpha_space:
+
+    # Specify the alpha value to use: ridge.alpha
+    ridge.alpha = alpha
+    
+    # Perform 10-fold CV: ridge_cv_scores
+    ridge_cv_scores = cross_val_score(ridge, X, y, cv = 10)
+    
+    # Append the mean of ridge_cv_scores to ridge_scores
+    ridge_scores.append(np.mean(ridge_cv_scores))
+    
+    # Append the std of ridge_cv_scores to ridge_scores_std
+    ridge_scores_std.append(np.std(ridge_cv_scores))
+
+# Display the plot
+display_plot(ridge_scores, ridge_scores_std)
+
+![image](https://user-images.githubusercontent.com/47924318/120928973-0e866100-c6b5-11eb-9290-75d859f9669e.png)
