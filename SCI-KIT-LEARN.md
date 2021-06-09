@@ -473,5 +473,5 @@ plt.ylabel('True Positive Rate')
 plt.title('ROC Curve')
 plt.show()
 ```
-The dotted diagonal represents a random classifier.
+The dotted diagonal represents a random classifier.  
 ![image](https://user-images.githubusercontent.com/47924318/121441477-e4080280-c957-11eb-839c-19f3f5b3b645.png)
