@@ -378,3 +378,47 @@ for alpha in alpha_space:
 display_plot(ridge_scores, ridge_scores_std)
 
 ![image](https://user-images.githubusercontent.com/47924318/120928973-0e866100-c6b5-11eb-9290-75d859f9669e.png)
+
+# Confusion Matrix
+|        |      | Predicted  |            |   |
+|--------|------|------------|------------|---|
+|        |      | Spam       | Real       |   |
+| Actual | Spam | True Pos.  | False Pos. |   |
+|        | Real | False Pos. | True Neg.  |   |
+
+Accuracy = (tp + fn) / sum(confusion matrix)  
+Precision = tp / (tp + fp) AKA Positive Predictive Value, PPV  
+Recall = tp / (tp + fn) AKA Sensitivity, Hit Rate, True Positive Rate
+F1 Score = 2 * (precision * recall) / (precision + recall)
+
+```python3
+# Import necessary modules
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+
+# Create training and test set
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4,random_state=42)
+
+# Instantiate a k-NN classifier: knn
+knn = KNeighborsClassifier(n_neighbors=6)
+
+# Fit the classifier to the training data
+knn.fit(X_train, y_train)
+
+# Predict the labels of the test data: y_pred
+y_pred = knn.predict(X_test)
+```
+```
+<script.py> output:
+    [[176  30]
+     [ 52  50]]
+                 precision    recall  f1-score   support
+    
+              0       0.77      0.85      0.81       206
+              1       0.62      0.49      0.55       102
+    
+    avg / total       0.72      0.73      0.72       308
+```
+# Logistic Regression and the ROC Curve
+
+[Receiver Operator Characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
