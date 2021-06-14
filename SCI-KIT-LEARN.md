@@ -175,7 +175,7 @@ dict_keys(['data', 'target', 'target_names', 'images', 'DESCR'])
 (1797, 64)
 ```
 ![image](https://user-images.githubusercontent.com/47924318/115998054-770cf900-a5b3-11eb-9b11-6a24f035b281.png)
-### Train Test Split
+## Train Test Split
 ```python3
 # Import necessary modules
 from sklearn.neighbors import KNeighborsClassifier
@@ -197,7 +197,7 @@ knn.fit(X_train, y_train)
 # Print the accuracy
 print(knn.score(X_test, y_test))
 ```
-### Overfitting and Underfitting
+## Overfitting and Underfitting
 ```python3
 # Setup arrays to store train and test accuracies
 neighbors = np.arange(1, 9)
@@ -271,7 +271,7 @@ X_reshaped = X.reshape(-1,1)
 print("Dimensions of y after reshaping: ", y_reshaped.shape)
 print("Dimensions of X after reshaping: ", X_reshaped.shape)
 ```
-# Cross-validation
+## Cross-validation
 Partition data set into k folds. For each fold/partition, set it to training set and test accuracy of model.  Validate the skill of the model using the k scores.
 ```python3
 # Import the necessary modules
@@ -319,7 +319,7 @@ In [2]:
 %timeit cross_val_score(reg, X, y, cv = 10)
 10 loops, best of 3: 20.7 ms per loop
 ```
-# Regularized Regression I: Lasso
+## Regularized Regression I: Lasso
 Least Absolute Shrinkage and Selection Operator  
 Shrink the dataset to remove unimportant variables.
 ```python3
@@ -344,9 +344,10 @@ plt.show()
 ```
 ![image](https://user-images.githubusercontent.com/47924318/120568389-bf54dd80-c3e1-11eb-939d-39526b1d7ee1.png)
 
-# Regularized Regression II: Ridge
+## Regularized Regression II: Ridge
 Unlike Lasso, Ridge doesn't set parameters to zero.
 
+```python3
 # Import necessary modules
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import cross_val_score
@@ -376,10 +377,13 @@ for alpha in alpha_space:
 
 # Display the plot
 display_plot(ridge_scores, ridge_scores_std)
+```
 
 ![image](https://user-images.githubusercontent.com/47924318/120928973-0e866100-c6b5-11eb-9290-75d859f9669e.png)
 
-# Confusion Matrix
+# Fine Tuning
+
+## Confusion Matrix
 |        |      | Predicted  |            |   |
 |--------|------|------------|------------|---|
 |        |      | Spam       | Real       |   |
@@ -419,7 +423,7 @@ y_pred = knn.predict(X_test)
     
     avg / total       0.72      0.73      0.72       308
 ```
-# Logistic Regression and the ROC Curve
+## Logistic Regression and the ROC Curve
 
 [Receiver Operator Characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 
@@ -475,3 +479,39 @@ plt.show()
 ```
 The dotted diagonal represents a random classifier.  
 ![image](https://user-images.githubusercontent.com/47924318/121441477-e4080280-c957-11eb-839c-19f3f5b3b645.png)
+
+## AUC Computation
+
+```python3
+# Import necessary modules
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import cross_val_score
+
+# Compute predicted probabilities: y_pred_prob
+y_pred_prob = logreg.predict_proba(X_test)[:,1]
+
+# Compute and print AUC score
+print("AUC: {}".format(roc_auc_score(y_test, y_pred_prob)))
+
+# Compute cross-validated AUC scores: cv_auc
+cv_auc = cross_val_score(logreg,X,y,scoring='roc_auc',cv=5)
+
+# Print list of AUC scores
+print("AUC scores computed using 5-fold cross-validation: {}".format(cv_auc))
+```
+```
+<script.py> output:
+    AUC: 0.8254806777079764
+    AUC scores computed using 5-fold cross-validation: [0.80148148 0.8062963  0.81481481 0.86245283 0.8554717 ]
+```
+![image](https://user-images.githubusercontent.com/47924318/121971633-2f028b00-cd47-11eb-8aa4-865fe7ac110d.png)
+
+# Hyperparameters
+
+- Hyperparameter:  Parameters that the user has to choose in order for the machine learning model to work. For example, k in KNN.  Hyperparameters cannot be learned by the model.
+
+## GridSearchCV
+
+## RandomizedSearchCV
+
+# Hold-Out Set
