@@ -573,3 +573,7 @@ print("Best score is {}".format(tree_cv.best_score_))
 ```
 
 # Hold-Out Set
+Split into training set and hold out set. You "hold out" on using the set to see how the model will score on unused data. I don't understand the difference between a hold out set and a test set.
+
+
+
