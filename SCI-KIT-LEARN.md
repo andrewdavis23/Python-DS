@@ -645,5 +645,41 @@ print("Tuned ElasticNet MSE: {}".format(mse))
     Tuned ElasticNet R squared: 0.8668305372460283
     Tuned ElasticNet MSE: 10.05791413339844
 ```
+# Missing Data
+```python3
+# Convert '?' to NaN
+df[df == '?'] = np.nan
 
+# Print the number of NaNs
+print(df.isnull().sum())
+
+# Print shape of original DataFrame
+print("Shape of Original DataFrame: {}".format(df.shape))
+
+# Drop missing values and print shape of new DataFrame
+df = df.dropna()
+
+# Print shape of new DataFrame
+print("Shape of DataFrame After Dropping All Rows with Missing Values: {}".format(df.shape))
+```
+```
+Shape of Original DataFrame: (435, 17)
+Shape of DataFrame After Dropping All Rows with Missing Values: (232, 17)
+```
+## Imputing missing data in a ML Pipeline I
+```python3
+# Import the Imputer module, support vector classification
+from sklearn.preprocessing import Imputer
+from sklearn.svm import SVC
+
+# Setup the Imputation transformer: imp
+imp = Imputer(missing_values='NaN', strategy='most_frequent', axis=0)
+
+# Instantiate the SVC classifier: clf
+clf = SVC()
+
+# Setup the pipeline with the required steps: steps
+steps = [('imputation', imp),
+        ('SVM', clf)]
+```
 
