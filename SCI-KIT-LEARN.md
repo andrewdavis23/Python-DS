@@ -392,7 +392,7 @@ display_plot(ridge_scores, ridge_scores_std)
 
 Accuracy = (tp + fn) / sum(confusion matrix)  
 Precision = tp / (tp + fp) AKA Positive Predictive Value, PPV  
-Recall = tp / (tp + fn) AKA Sensitivity, Hit Rate, True Positive Rate
+Recall = tp / (tp + fn) AKA Sensitivity, Hit Rate, True Positive Rate  
 F1 Score = 2 * (precision * recall) / (precision + recall)
 
 ```python3
