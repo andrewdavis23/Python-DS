@@ -723,3 +723,7 @@ avg / total       0.97      0.97      0.97       131
     
     avg / total       0.97      0.97      0.97       131
 ```
+
+## Centering and Scaling with Pipeline
+
+
