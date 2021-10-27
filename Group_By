@@ -1,4 +1,4 @@
-#### INTERESTING GROUP BY  ###########################################################################################
+#### INTERESTING GROUP BY  #################################################################################
 ## Group by the columns of a different dataframe
 
 # Read life_fname into a DataFrame: life
