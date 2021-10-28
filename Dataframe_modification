@@ -56,7 +56,7 @@ print(CA_TX_month2,all_month2)
 # NY    2        77  87.0    20
 # TX    2       205  60.0    55
 
-$ Modify columns
+# Modify columns ##################################################################################
 
 # Create indiv_per_10k col as homeless individuals per 10k state pop
 homelessness["indiv_per_10k"] = 10000 * homelessness['individuals'] / homelessness['state_pop'] 
