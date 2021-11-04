@@ -1,4 +1,8 @@
+# PLOTTING
+
 ## EX 1
+
+```python3
 # Create a plot with color='red'
 df.plot(color='red')
 
@@ -13,8 +17,9 @@ plt.ylabel('Temperature (degrees F)')
 
 # Display the plot
 plt.show()
-
+```
 ## EX 2
+```python3
 # Make a list of the column names to be plotted: cols
 cols = ['weight','mpg']
 
@@ -23,8 +28,9 @@ df[cols].plot(subplots=True)
 
 # Display the plot
 plt.show()
-
+```
 ## EX 3
+```python3
 # Display the box plots on 3 separate rows and 1 column
 fig, axes = plt.subplots(nrows=3, ncols=1)
 
@@ -39,3 +45,11 @@ titanic.loc[titanic['pclass'] == 3].plot(ax=axes[2], y='fare', kind='box')
 
 # Display the plot
 plt.show()
+```
+# PIVOT TABLES
+- default aggregate function is mean
+- margins=True adds Grand Totals
+
+```python3
+DataFrame.pivot_table(values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All', observed=False, sort=True)
+```
