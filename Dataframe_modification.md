@@ -1,4 +1,6 @@
-####Change index and column names ########################################################################
+#### Change index and column names 
+
+```python3
 
 # Assign the string 'MONTHS' to sales.index.name
 sales.index.name = 'MONTHS'
@@ -22,9 +24,30 @@ print(sales)
 # APR         77  87.0    20
 # MAY        132   NaN    52
 # JUN        205  60.0    55
+```
 
+#### Slice by index
 
-#### Indexing multiple levels of a MultiIndex #############################################################
+```python3
+
+# Use Boolean conditions to subset temperatures for rows in 2010 and 2011
+temperatures_bool = temperatures[(temperatures['date'] >= '2010-01-01') & (temperatures['date'] <= '2011-12-31')]
+print(temperatures_bool)
+
+# Set date as the index and sort the index
+temperatures_ind = temperatures.set_index('date').sort_index()
+
+# Use .loc[] to subset temperatures_ind for rows in 2010 and 2011
+print(temperatures_ind.loc['2010':'2011'])
+
+# Use .loc[] to subset temperatures_ind for rows from Aug 2010 to Feb 2011
+print(temperatures_ind.loc['2010-08':'2011-02'])
+
+```
+
+#### Indexing multiple levels of a MultiIndex
+
+```python3
 
 # Look up data for NY in month 1 in sales: NY_month1
 NY_month1 = sales.loc['NY',1]
@@ -56,7 +79,11 @@ print(CA_TX_month2,all_month2)
 # NY    2        77  87.0    20
 # TX    2       205  60.0    55
 
-# Modify columns ##################################################################################
+```
+
+# Modify columns
+
+```python3
 
 # Create indiv_per_10k col as homeless individuals per 10k state pop
 homelessness["indiv_per_10k"] = 10000 * homelessness['individuals'] / homelessness['state_pop'] 
@@ -70,7 +97,11 @@ high_homelessness_srt = high_homelessness.sort_values('indiv_per_10k',ascending=
 # From high_homelessness_srt, select the state and indiv_per_10k cols
 result = high_homelessness_srt[['state','indiv_per_10k']]
 
-# Aggregate Funcs ##################################################################################
+```
+
+# Aggregate Funcs
+
+```python3
 
 # Import NumPy and create custom IQR function
 import numpy as np
@@ -84,7 +115,11 @@ temperature_c  fuel_price_usd_per_l  unemployment
 iqr            16.583                 0.073         0.565
 median         16.967                 0.743         8.099
 
-# Duplicates, Counting ############################################################################
+```
+
+#### Duplicates, Counting
+
+```python3
 
 # Drop duplicate store/type combinations
 store_types = sales.drop_duplicates(subset=["store", "type"])
@@ -107,4 +142,6 @@ print(dept_counts_sorted)
 # Get the proportion of departments of each number and sort
 dept_props_sorted = store_depts.department.value_counts(sort=True, normalize=True)
 print(dept_props_sorted)
+
+```
 
