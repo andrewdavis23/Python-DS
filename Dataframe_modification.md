@@ -81,7 +81,7 @@ print(CA_TX_month2,all_month2)
 
 ```
 
-# Modify columns
+#### Modify columns
 
 ```python3
 
@@ -99,7 +99,7 @@ result = high_homelessness_srt[['state','indiv_per_10k']]
 
 ```
 
-# Aggregate Funcs
+#### Aggregate Funcs
 
 ```python3
 
