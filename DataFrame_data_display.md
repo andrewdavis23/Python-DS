@@ -46,6 +46,24 @@ titanic.loc[titanic['pclass'] == 3].plot(ax=axes[2], y='fare', kind='box')
 # Display the plot
 plt.show()
 ```
+## HISTOGRAM
+
+```python3
+# Modify bins to 20
+avocados[avocados["type"] == "conventional"]["avg_price"].hist(alpha=0.5,bins=20)
+
+# Modify bins to 20
+avocados[avocados["type"] == "organic"]["avg_price"].hist(alpha=0.5,bins=20)
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
+```
+![image](https://user-images.githubusercontent.com/47924318/140651206-1e0e49d1-fed0-4bdb-a27d-30f4a9caa1fa.png)
+
+
 # PIVOT TABLES
 - default aggregate function is mean
 - margins=True adds Grand Totals
