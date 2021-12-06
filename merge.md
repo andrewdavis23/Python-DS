@@ -1,4 +1,4 @@
-### ordered merge
+## merge_ordered()
 Perform merge with optional filling/interpolation.
 Designed for ordered data like time series data. Optionally perform group-wise merge (see examples).  
 
